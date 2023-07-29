@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #0c0d17;
+}
+.text-wrapper {
+  -webkit-text-stroke: 1px #2b6367;
+  color: #fff;
+  font-family: Josefin Sans;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.connect-button {
+  background-color: #299399;
+  border-radius: 15px;
+  position: absolute;
+  width: 330px;
+}
+
+.text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Jomolhari-Regular", Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+}
