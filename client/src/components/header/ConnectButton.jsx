@@ -6,7 +6,7 @@ import {
   WalletModal,
 } from "@solana/wallet-adapter-react-ui";
 import { useNavigate } from "react-router-dom";
-import "./HeaderCss.css";
+import "./styles.css";
 const ConnectButton = () => {
   const navigate = useNavigate();
   const [wallet, setWallet] = useState();

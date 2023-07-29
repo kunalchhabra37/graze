@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import "./createProject.css";
+import "./styles.css";
 export const CreateProjectComponent = () => {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");

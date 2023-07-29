@@ -25,6 +25,7 @@ svg {
 }
 .cards img {
   width: 100%;
+  margin-bottom: 25px;
 }
 .card-sep {
   margin-top: 25px;
@@ -42,10 +43,6 @@ svg {
   font-weight: 500;
   opacity: 0.699999988079071;
 }
-img {
-  
-  margin-bottom: 25px;
-}
 .card-add {
   border-radius: 20px;
   border: 2.5px dashed rgba(255, 255, 255, 0.5);
@@ -57,5 +54,4 @@ img {
 button{
   background: transparent;
   border: none;
-
 }

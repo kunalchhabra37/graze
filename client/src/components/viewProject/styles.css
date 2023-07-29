@@ -1,0 +1,31 @@
+.contain {
+  border-radius: 15px;
+  background: #191a41;
+  padding: 11px;
+}
+.contain img {
+  width: 100%;
+}
+.card-text {
+  color: #fff;
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 500;
+}
+.card-desc {
+  color: #fff;
+  font-family: Inter;
+  font-size: 25px;
+  font-weight: 500;
+  opacity: 0.699999988079071;
+}
+.tables{
+  color:#191a41 !important;
+}
+.tables th,td{
+  background-color:#191a41 !important;
+  color: #fff !important;
+}
+.tables td{
+  border-bottom: none !important;
+}

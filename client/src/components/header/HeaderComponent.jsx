@@ -2,7 +2,7 @@ import React from "react";
 import ConnectButton from "./ConnectButton";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import "./HeaderCss.css";
+import "./styles.css";
 
 const HeaderComponent = () => {
   return (
