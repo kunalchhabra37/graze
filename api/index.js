@@ -4,16 +4,14 @@ const app = express()
 
 const PORT = 6969
 
-app.use(express.json())
-app.use(cors())
-/*
-endpoints:
-- create project: 
-- Mint NFT and transfer
-- burn NFT
-- Update NFT
-- fetch users holding a particular NFT
-- fetch dashboard
-*/
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+
+
+app.use('/api/nft', require('./routes/api.nft'))
+app.use('/api/projects', require('./routes/api.project'))
+app.use('/api/dashboard', require('./routes/api.dashboard'))
+
 
 app.listen(PORT, console.log(`Server started on Port ${PORT}`))
