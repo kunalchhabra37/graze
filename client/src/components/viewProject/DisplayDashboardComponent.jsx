@@ -1,31 +1,28 @@
 import Table from "react-bootstrap/Table";
-export const DisplayDashboard = ({ projectId }) => {
+export const DisplayDashboard = ({ data }) => {
+  console.log(data);
   return (
     <>
       <Table className="tables" responsive>
         <thead>
           <tr>
-            <th>User</th>
             <th>Id</th>
-            <th>first visited</th>
-            <th>last visited</th>
-            <th>blades sent</th>
-            <th>blades opened</th>
-            <th>blade open rate</th>
-            <th>blade subscription rate</th>
-            <th>user score</th>
-            <th>user star</th>
-            <th>subscription status</th>
+            <th>Status</th>
+            <th>Transferable</th>
+            <th>mintAddress</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Owner1</td>
-          </tr>
+          {data.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.status}</td>
+                <td>{item.transferable ? "Yes" : "No"}</td>
+                <td>{item.mintAddress}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </>

@@ -7,6 +7,7 @@ const config = {
 };
 
 const createProject = async (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
   try {
     const name = req.body.name;
     const bladeImage = req.body.bladeImage;
@@ -65,6 +66,7 @@ const createProject = async (req, res) => {
 };
 
 const listAllProjects = async (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
   try {
     const resp = await axios.get(
       `${underdogApiEndpoint}/v2/projects?limit=10`,

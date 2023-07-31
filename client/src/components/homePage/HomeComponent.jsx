@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import pic from "./image.jpeg";
 import plusImg from "./plus.svg";
 export const HomePageComp = () => {
+  const [projects, setProjects] = React.useState([]);
+  useEffect(() => {
+    fetch("http://127.0.0.1:6969/api/projects/fetch/all")
+      .then((response) => response.json())
+      .then((data) => setProjects(data.result))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <>
       <Container className="heading">
@@ -28,20 +34,21 @@ export const HomePageComp = () => {
       </Container>
       <Container fluid>
         <Row className="card-sep">
-          <Col md={3} className="cards">
-          <Link to="/viewProject" state={{ projectId: "Test" }} className="send">
-              <img src={pic} alt="at" />
-              <div className="card-text">Test</div>
-              <div className="card-desc">3dxn19e9..s</div>
-            </Link>
-          </Col>
-          <Col md={3} className="cards">
-            <Link to="/viewProject" state={{ projectId: "Test1" }} className="send">
-              <img src={pic} alt="at" />
-              <div className="card-text">Test</div>
-              <div className="card-desc">3dxn19e9..s</div>
-            </Link>
-          </Col>
+          {Array.isArray(projects) &&
+            projects.map((project) => (
+              <Col md={3} className="cards" key={project.projectId}>
+                <Link
+                  to="/viewProject"
+                  state={{ projectId: project.projectId }}
+                  className="send"
+                >
+                  <img src={project.image} alt="at" />
+                  <div className="card-text">{project.name}</div>
+                  <div className="card-desc">{project.description}</div>
+                  <div className="card-mint">{project.grassMintAddress}</div>
+                </Link>
+              </Col>
+            ))}
           <Col md={2} className="card-add" align="center">
             <Link to="/createProject" className="send">
               <img src={plusImg} alt="plus" width="86px" />

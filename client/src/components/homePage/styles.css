@@ -1,7 +1,7 @@
 .header {
   color: white;
 }
-.send{
+.send {
   text-decoration: none;
 }
 .heading {
@@ -42,6 +42,15 @@ svg {
   font-size: 25px;
   font-weight: 500;
   opacity: 0.699999988079071;
+  word-wrap: break-word;
+}
+.card-mint{
+  color: #fff;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.699999988079071;
+  word-wrap: break-word;
 }
 .card-add {
   border-radius: 20px;
@@ -51,7 +60,7 @@ svg {
   margin-left: 18px;
   margin-bottom: 15px;
 }
-button{
+button {
   background: transparent;
   border: none;
 }

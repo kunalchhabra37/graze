@@ -1,40 +1,27 @@
 import Table from "react-bootstrap/Table";
-import pic from "./image.jpeg";
-export const DisplayBlade = ({ projectId }) => {
+export const DisplayBlade = ({ data }) => {
   return (
     <>
       <Table className="tables" responsive>
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>URL</th>
-            <th>Image</th>
-            <th>Owner</th>
+            <th>Status</th>
+            <th>Transferable</th>
+            <th>mintAddress</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>100</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>
-              <img src={pic} alt="pic" height={70} />
-            </td>
-            <td>Owner1</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>
-              <img src={pic} alt="pic" height={70} />
-            </td>
-            <td>Owner2</td>
-          </tr>
+          {data.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.status}</td>
+                <td>{item.transferable ? "Yes" : "No"}</td>
+                <td>{item.mintAddress}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </>

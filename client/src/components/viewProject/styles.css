@@ -19,6 +19,21 @@
   font-weight: 500;
   opacity: 0.699999988079071;
 }
+.card-mint{
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 1;
+}
+.card-mints{
+  color: #fff;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0.699999988079071;
+  word-wrap: break-word;
+}
 .tables{
   color:#191a41 !important;
 }
