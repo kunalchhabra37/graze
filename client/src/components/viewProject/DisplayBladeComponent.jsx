@@ -12,16 +12,17 @@ export const DisplayBlade = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => {
-            return (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.status}</td>
-                <td>{item.transferable ? "Yes" : "No"}</td>
-                <td>{item.mintAddress}</td>
-              </tr>
-            );
-          })}
+          {data?.length > 0 &&
+            data.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.status}</td>
+                  <td>{item.transferable ? "Yes" : "No"}</td>
+                  <td>{item.mintAddress}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </Table>
     </>

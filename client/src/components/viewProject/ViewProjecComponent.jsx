@@ -12,26 +12,26 @@ export const ViewProjectComponent = () => {
   const { projectId } = location.state;
   const [bladeData, setBladeData] = useState({});
   const [grassData, setGrassData] = useState({});
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async () => {
+    try {
       const response = await fetch(
         `http://127.0.0.1:6969/api/projects/fetch/${projectId}`
       );
       const data = await response.json();
       setBladeData(data.bladeProject);
       setGrassData(data.grassProject);
-      if (!bladeData.nfts.results) {
-        bladeData.nfts.results = [];
-      }
-      if (!grassData.nfts.results) {
-        grassData.nfts.results = [];
-      }
-      console.log(bladeData);
-    };
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
     fetchData();
-  }, [projectId]);
+  }, []);
   const [isBlade, setIsBlade] = useState(true);
-  return (
+  return bladeData.length === 0 || grassData.length === 0 ? (
+    <div>Loading...</div>
+  ) : (
     <Container>
       <Row>
         <Col md={3}>
@@ -79,9 +79,9 @@ export const ViewProjectComponent = () => {
           </Row>
           <Container className="contain">
             {isBlade ? (
-              <DisplayBlade data={bladeData.nfts.results} />
+              <DisplayBlade data={bladeData?.nfts?.results} />
             ) : (
-              <DisplayDashboard data={grassData.nfts.results} />
+              <DisplayDashboard data={grassData?.nfts?.results} />
             )}
           </Container>
         </Col>

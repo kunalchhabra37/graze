@@ -1,14 +1,13 @@
 import Table from "react-bootstrap/Table";
 export const DisplayDashboard = ({ data }) => {
-  console.log(data);
   return (
     <>
       <Table className="tables" responsive>
         <thead>
           <tr>
             <th>Id</th>
-            <th>Status</th>
-            <th>Transferable</th>
+            <th>Name</th>
+            <th>Owner Address</th>
             <th>mintAddress</th>
           </tr>
         </thead>
@@ -17,8 +16,8 @@ export const DisplayDashboard = ({ data }) => {
             return (
               <tr key={item.id}>
                 <td>{item.id}</td>
-                <td>{item.status}</td>
-                <td>{item.transferable ? "Yes" : "No"}</td>
+                <td>{item.name}</td>
+                <td>{item.ownerAddress}</td>
                 <td>{item.mintAddress}</td>
               </tr>
             );
