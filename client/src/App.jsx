@@ -5,6 +5,7 @@ import HeaderComponent from "./components/header/HeaderComponent";
 import { HomePageComp } from "./components/homePage/HomeComponent";
 import { LandingPageComponent } from "./components/landingPage/LandingPageComponent";
 import { CreateProjectComponent } from "./components/createProject/CreateProjectComponent";
+import { CreateNftComponent } from "./components/createProject/CreateNFTComponent";
 import { ViewProjectComponent } from "./components/viewProject/ViewProjecComponent";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -24,6 +25,7 @@ export default function App() {
                 path="/createProject"
                 element={<CreateProjectComponent />}
               />
+              <Route path="/createNFT" element={<CreateNftComponent />} />
               <Route path="/viewProject" element={<ViewProjectComponent />} />
             </Routes>
           </Row>

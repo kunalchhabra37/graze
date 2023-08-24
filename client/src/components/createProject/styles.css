@@ -3,6 +3,10 @@
   font-size: 20px;
   margin-top: 10px;
 }
+.form-check-label{
+  color:white;
+  font-size: 16px;;
+}
 form {
   margin-bottom: 17px;
 }

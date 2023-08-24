@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,6 +13,7 @@ export const ViewProjectComponent = () => {
   const { projectId } = location.state;
   const [bladeData, setBladeData] = useState({});
   const [grassData, setGrassData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -20,7 +22,8 @@ export const ViewProjectComponent = () => {
       const data = await response.json();
       setBladeData(data.bladeProject);
       setGrassData(data.grassProject);
-      console.log(data);
+      setIsLoading(false);
+      // console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -28,8 +31,12 @@ export const ViewProjectComponent = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  const changes = (h) => {
+    if (h === undefined) return;
+    return JSON.parse(h).description;
+  };
   const [isBlade, setIsBlade] = useState(true);
-  return bladeData.length === 0 || grassData.length === 0 ? (
+  return isLoading ? (
     <div>Loading...</div>
   ) : (
     <Container>
@@ -38,7 +45,7 @@ export const ViewProjectComponent = () => {
           <Container className="contain">
             <div className="card-text">{bladeData.name}</div>
             <img src={bladeData.image} alt="project" className="img" />
-            <div className="card-desc">{bladeData.description}</div>
+            <div className="card-desc">{changes(bladeData.description)}</div>
           </Container>
           <Container className="contain" style={{ marginTop: "20px" }}>
             <div className="card-mint">Blade Mint Address :</div>
@@ -72,7 +79,13 @@ export const ViewProjectComponent = () => {
             </Col>
             <Col md={7}></Col>
             <Col md={1}>
-              <img src={add_icon} alt="add" height={40} width={135} />
+              <Link
+                to="/createNFT"
+                state={{ projectId: projectId }}
+                className="send"
+              >
+                <img src={add_icon} alt="add" height={40} width={135} />
+              </Link>
             </Col>
 
             <hr style={{ color: "white", margin: "0.6rem 1rem" }} />
